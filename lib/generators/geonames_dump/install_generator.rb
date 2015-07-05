@@ -1,4 +1,5 @@
 require 'pry'
+
 module GeonamesDump
   module Generators
     class InstallGenerator < Rails::Generators::Base
@@ -17,7 +18,7 @@ DESC
           if self.class.migration_exists?(migration_folder, file)
             say_status("skip", "Migration #{file} already exists", :yellow)
           else
-            migration_template File.join(migration_folder, "#{file}.rb")
+            migration_template File.join(migration_folder, "#{file}.rb"), "db/migrate/#{file.rb}"
           end
         end
       end
